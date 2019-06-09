@@ -1,7 +1,7 @@
 # osm-dwg-userscripts
 User Scripts for DWG (OSM moderator) usage
 
-The scripts have been developed for "Violentmonkey" on Firefox. "Greasemonkey" does not work with all scripts.
+The scripts have been developed for "Violentmonkey" on Firefox. "Greasemonkey" does *not* work.
 
 ## dwg_issue2ticket.user.js
 
@@ -9,7 +9,7 @@ Intended for use on the OSM website "issues" page. Adds a "create OTRS ticket" l
 
 ![Screenshot](dwg_issue2ticket.png)
 
-The script stores OTRS user name and password in Greasemonkey's internal variable storage. 
+The script stores OTRS user name and password in Greasemonkey's internal variable storage. Also, you currently need the "CORS Everywhere" add-on; if you do not have that, then creating the ticket still works but the ticket number cannot automatically be added as an issue comment.
 
 To install:
 

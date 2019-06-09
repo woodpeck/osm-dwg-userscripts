@@ -3,6 +3,7 @@
 // @version  1
 // @grant    none
 // @match    https://otrs.openstreetmap.org/otrs/index.pl?Action=AgentTicketNote;TicketID=*
+// @match    https://otrs.openstreetmap.org/otrs/index.pl?Action=AgentTicketClose;TicketID=*
 // @match    https://www.openstreetmap.org/message/new/*
 // @match    https://www.openstreetmap.org/messages/inbox
 // @match    https://www.openstreetmap.org/login?referer=%2Fmessages%2Finbox
