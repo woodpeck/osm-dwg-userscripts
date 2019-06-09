@@ -21,7 +21,7 @@ Intended for use on OTRS. When adding a "note" to a ticket, allows to create an 
 
 ![Screenshot](dwg_usermessage.png)
 
-The script requires the disabling of frame-related security features in the browser (because it relies on controlling an instance of the OSM web site loaded into an invisible IFrame, and the OSM web site uses headers to forbid that).
+The script requires the disabling of frame-related security features in the browser (because it relies on controlling an instance of the OSM web site loaded into an invisible IFrame, and the OSM web site uses headers to forbid that). See script header comment for details.
 
 To install: 
 
