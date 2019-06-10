@@ -3,8 +3,8 @@
 // @namespace     https://htmlblog.net
 // @description   Automatically creates OTRS tickets from OSM webpage issues
 // @include       https://www.openstreetmap.org/issues/*
-// @grant         GM.setValue
-// @grant         GM.getValue
+// @grant         GM_setValue
+// @grant         GM_getValue
 // ==/UserScript==
 
 let queue = "Data Working Group";
@@ -66,8 +66,8 @@ async function createOtrsTicket()
   // 3. fixing a href/img src URLs so they still work in OTRS
   
   let clone = content.cloneNode(true);
-  let comment_div = document.evaluate("//div[@class='comment']", clone, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-  comment_div.parentNode.removeChild(comment_div);
+  let form = document.evaluate("//form", clone, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  form.parentNode.removeChild(form);
 
   let anchors = clone.getElementsByTagName("a");
   for (let anchor of anchors) 
@@ -110,17 +110,17 @@ async function createOtrsTicket()
 
   // try to retrieve username and password for OTRS from the GreaseMonkey variable store.
   // if not present, ask user & save to store
-  let username = await GM.getValue("otrs_username");
+  let username = GM_getValue("otrs_username");
   if (!username || username === "") 
   {
     username = prompt("OTRS User Name:");
-    GM.setValue("otrs_username", username);
+    GM_setValue("otrs_username", username);
   }
-  let password = await GM.getValue("otrs_password");
+  let password = GM_getValue("otrs_password");
   if (!password || password === "") 
   {
     password = prompt("OTRS Password:");
-    GM.setValue("otrs_password", password);
+    GM_setValue("otrs_password", password);
   }
   
   // add username and password to JSON payload.
@@ -141,9 +141,8 @@ async function createOtrsTicket()
     if (json.Error.ErrorCode == "TicketCreate.AuthFail") {
       alert("OTRS Authentication failed. Try again.");
       // we have to delete the stored user name and password so that the script asks again next time.
-      // GM.deleteValue did not work for me.
-      GM.setValue("otrs_username", "");
-      GM.setValue("otrs_password", "");
+      GM_deleteValue("otrs_username");
+      GM_deleteValue("otrs_password");
       return;
     } else {
       alert("OTRS error: " + json.Error.ErrorMessage);
