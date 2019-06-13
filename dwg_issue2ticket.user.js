@@ -5,6 +5,7 @@
 // @include       https://www.openstreetmap.org/issues/*
 // @grant         GM_setValue
 // @grant         GM_getValue
+// @grant         GM_deleteValue
 // ==/UserScript==
 
 let queue = "Data Working Group";
