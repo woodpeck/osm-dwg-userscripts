@@ -17,7 +17,9 @@ Activate the "Violentmonkey" extension, then navigate to https://github.com/wood
 
 ## dwg_usermessage.user.js
 
-Intended for use on OTRS. When adding a "note" to a ticket, allows to create an OSM user-to-user message from the note text. The recipient user name is taken from the note subject line, which must end in "to <username>". The message body is taken from the note body, except if the first line of the note body is "Subject: XXX", in which case this is used as a subject line for the message.
+Intended for use on OTRS. When adding a "note" to a ticket, allows to create an OSM user-to-user message from the note text. The recipient user name is taken from the note subject line, which must end in "to USERNAME". The message body is taken from the note body, except if the first line of the note body is "Subject: XXX", in which case this is used as a subject line for the message.
+
+The same functionality is available when closing a ticket (where you can also type a message).
 
 ![Screenshot](dwg_usermessage.png)
 
